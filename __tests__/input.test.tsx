@@ -1,5 +1,6 @@
 import Input from "@/app/components/input/Input";
 import { render, screen } from "@testing-library/react";
+import '@testing-library/jest-dom';
 
 describe("Input component", () => {
   it("renders the input component correctly", () => {
@@ -21,5 +22,6 @@ describe("Input component", () => {
     );
 
     expect(screen.getByLabelText("Search-Catalogue")).toBeInTheDocument();
+    expect(screen.getByPlaceholderText("Search catalogue..."))
   });
 });
