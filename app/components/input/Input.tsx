@@ -14,7 +14,7 @@ const StyledInput = styled(TextField)(() => ({
 export type InputProps = {
   id: string;
   label:string;
-  variant?: "outlined" | "filled" | "standard";
+  variant: "outlined" | "filled" | "standard";
   fullWidth: boolean;
   value: string;
   onChange:(event: React.ChangeEvent<HTMLInputElement>) => void;
