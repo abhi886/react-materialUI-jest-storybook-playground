@@ -20,6 +20,7 @@ const Input: FC<InputProps> = ({
   onChange,
   placeholder,
   slotProps,
+  type
 }) => {
   return (
     <StyledInput
@@ -31,6 +32,7 @@ const Input: FC<InputProps> = ({
       onChange={onChange}
       placeholder={placeholder}
       slotProps={slotProps}
+      type={type}
     />
   );
 };

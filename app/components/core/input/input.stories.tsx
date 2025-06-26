@@ -37,6 +37,7 @@ render: () => (
         onChange={() => {}}
         fullWidth={true}
         value=''
+        type={'text'}
       />
       <Input
         id="input-outlined"
@@ -46,6 +47,7 @@ render: () => (
         onChange={() => {}}
         fullWidth
         value=''
+        type={'text'}
       />
       <Input
         id="input-filled"
@@ -55,6 +57,7 @@ render: () => (
         onChange={() => {}}
         fullWidth
         value=''
+        type={'text'}
       />
     </div>
   ),
@@ -74,6 +77,7 @@ export const FullWidth: Story = {
           onChange={() => {}}
           fullWidth
           value=""
+          type={'text'}
         />
       </div>
       <div style={{ width: '300px', border: '1px dashed grey' }}>
@@ -85,8 +89,65 @@ export const FullWidth: Story = {
           onChange={() => {}}
           fullWidth={false}
           value=""
+          type={'text'}
         />
       </div>
     </div>
   ),
+}
+// Types
+export  const Type:Story = {
+  "name": 'Types of input',
+ render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <div style={{ width: '100%' }}>
+        <Input
+          id="input-text"
+          label="Text"
+          variant="standard"
+          placeholder="Enter the text here"
+          onChange={() => {}}
+          fullWidth
+          value=""
+          type={'text'}
+        />
+      </div>
+      <div style={{ width: '100%' }}>
+        <Input
+          id="input-password"
+          label="Password"
+          variant="standard"
+          placeholder="Enter the password here"
+          onChange={() => {}}
+          fullWidth
+          value=""
+          type={'password'}
+        />
+      </div>
+      <div style={{ width: '100%' }}>
+        <Input
+          id="input-email"
+          label="Email"
+          variant="standard"
+          placeholder="Enter the email"
+          onChange={() => {}}
+          fullWidth
+          value=""
+          type={'email'}
+        />
+      </div>
+       <div style={{ width: '100%' }}>
+        <Input
+          id="input-date"
+          label=""
+          variant="standard"
+          placeholder="Enter the date"
+          onChange={() => {}}
+          fullWidth
+          value=""
+          type={'date'}
+        />
+      </div>
+    </div>
+  ),    
 }

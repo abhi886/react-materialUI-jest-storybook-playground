@@ -9,4 +9,5 @@ export type InputProps = {
   onChange:(event: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   slotProps?: TextFieldProps['slotProps'];
+  type: 'text' | 'email' | 'password'| 'date';
 }
