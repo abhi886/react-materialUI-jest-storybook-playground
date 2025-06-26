@@ -1,5 +1,5 @@
 'use client';
-import Input from "./components/input/Input";
+import Input from "./components/core/input/Input";
 import styles from "./page.module.css";
 import { useState } from 'react';
 
@@ -26,6 +26,7 @@ export default function Home() {
                 'data-testid': 'search-id',
               },
             }}
+            type="text"
           />
     </div>
   );
