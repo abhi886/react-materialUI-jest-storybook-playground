@@ -8,6 +8,46 @@ const meta: Meta<typeof Input> = {
    parameters: {
     layout: 'centered',
   },
+  argTypes: {
+  id: {
+    control: 'text',
+    description: 'The ID of the input element',
+  },
+  label: {
+    control: 'text',
+    description: 'Label text for the input field',
+  },
+  variant: {
+    control: { type: 'radio' },
+    options: ['outlined', 'filled', 'standard'],
+    description: 'The variant to use for the input field',
+  },
+  fullWidth: {
+    control: 'boolean',
+    description: 'If true, the input takes up the full width of its container',
+  },
+  value: {
+    control: 'text',
+    description: 'The current value of the input',
+  },
+  onChange: {
+    action: 'onChange',
+    description: 'Event handler triggered when the input value changes',
+  },
+  placeholder: {
+    control: 'text',
+    description: 'Placeholder text displayed inside the input',
+  },
+  slotProps: {
+    control: false,
+    description: 'Custom props for the internal slots of the MUI TextField',
+  },
+  type: {
+    control: { type: 'select' },
+    options: ['text', 'email', 'password', 'date'],
+    description: 'The HTML input type',
+  },
+}
 };
 export default meta;
 
