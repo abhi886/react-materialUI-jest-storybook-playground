@@ -1,10 +1,13 @@
-import Input, { InputProps } from "@/app/components/input/Input";
+import Input from "@/app/components/core/input/Input";
+import { InputProps } from "@/app/components/core/input/PropTypes";
 import { fireEvent, render, screen } from "@testing-library/react";
 import '@testing-library/jest-dom';
 
 const mockOnclickHandler = jest.fn();
 describe("Input component", () => {
 const createMockInputProps = (overrides?: Partial<InputProps>): InputProps => ({
+  // overrides? is an optional paramerte - you do not have to pass anything in.
+  // if you do pass something, it must match the shape of Partial<InputProps>, some or all of the InputProps.
   id: "search",
   label: "Search-Catalogue",
   variant: "filled",
@@ -17,6 +20,7 @@ const createMockInputProps = (overrides?: Partial<InputProps>): InputProps => ({
       "data-testid": "search-id",
     },
   },
+  type: 'text',
   ...overrides,
 });
   beforeEach(()=> {
@@ -101,4 +105,39 @@ render(
     );  expect(screen.getByLabelText("Search-Catalogue")).toHaveAttribute("id", "search");
 });
 
+it('sets input type to text when type is set to text', () => {
+  render(
+    <Input
+          {...createMockInputProps({type: 'text'})}
+        />
+  );
+  expect(screen.getByTestId('search-id')).toHaveAttribute('type', 'text');
+})
+
+it('set input type to password when input type is select as password', () => {
+  render(
+    <Input
+          {...createMockInputProps({type: 'password'})}
+        />
+  );
+  expect(screen.getByTestId('search-id')).toHaveAttribute('type', 'password');
+})
+
+it('set input type to email when input type is select as email', () => {
+  render(
+    <Input
+          {...createMockInputProps({type: 'email'})}
+        />
+  );
+  expect(screen.getByTestId('search-id')).toHaveAttribute('type', 'email');
+})
+
+it('set input type to date when input type is select as date', () => {
+  render(
+    <Input
+          {...createMockInputProps({type: 'date'})}
+        />
+  );
+  expect(screen.getByTestId('search-id')).toHaveAttribute('type', 'date');
+})
 });
