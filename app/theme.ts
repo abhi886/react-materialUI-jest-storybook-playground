@@ -2,7 +2,7 @@
 'use client';
 import { Roboto } from 'next/font/google';
 import { createTheme } from '@mui/material/styles';
-import { red, blue } from '@mui/material/colors';
+import { red, blue, grey } from '@mui/material/colors';
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -20,6 +20,46 @@ const theme = createTheme({
     },
     secondary: {
       main: red[500], // optional secondary
+    },
+  },
+});
+
+export const lightTheme = createTheme({
+  palette: {
+    mode: 'light',
+    primary: {
+      main: blue[700], // #1976d2
+    },
+    secondary: {
+      main: red[500],
+    },
+    background: {
+      default: '#ffffff',
+      paper: '#f9f9f9',
+    },
+    text: {
+      primary: grey[900],
+      secondary: grey[800],
+    },
+  },
+});
+
+export const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: blue[200], // softer blue for dark background
+    },
+    secondary: {
+      main: red[300],
+    },
+    background: {
+      default: '#121212',
+      paper: '#1e1e1e',
+    },
+    text: {
+      primary: '#ffffff',
+      secondary: grey[400],
     },
   },
 });
