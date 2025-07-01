@@ -1,14 +1,14 @@
 // components/CategoryComboBox.jsx
 import React, { FC } from 'react';
 import { TextField } from '@mui/material';
-import { styled } from '@mui/material/styles';
 import { InputProps } from './PropTypes';
+import styled from 'styled-components';
 
-// Styled MUI TextField
-const StyledInput = styled(TextField)(() => ({
-  backgroundColor: '#f9f9f9',
-  borderRadius: 4,
-}));
+
+const StyledInput = styled(TextField)`
+  background-color: #f9f9f9;
+  border-radius: 4px;
+`;
 
 // Reusable Input component
 const Input: FC<InputProps> = ({
