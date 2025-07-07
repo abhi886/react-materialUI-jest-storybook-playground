@@ -7,14 +7,9 @@ const StyledTag = styled(Chip)<{ selected?: boolean }>`
   border-radius: 8px;
 
   &.MuiChip-outlined {
-    background-color: ${({ selected }) => (selected ? '#EDE7F6' : 'transparent')};
-    border-width: 2px;
-    border-color: ${({ selected }) => (selected ? '#673AB7' : 'rgba(0, 0, 0, 0.23)')};
-    color: ${({ selected }) => (selected ? '#311B92' : 'inherit')};
   }
 
   &.MuiChip-outlined:hover {
-    background-color: ${({ selected }) => (selected ? '#D1C4E9' : '#f0f0f0')};
   }
 
   &.MuiChip-outlined:focus-visible,
