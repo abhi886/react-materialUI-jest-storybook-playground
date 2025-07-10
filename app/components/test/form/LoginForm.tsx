@@ -7,7 +7,6 @@ import {
   InputLabel,
   MenuItem,
   Select,
-  TextField,
   Typography,
 } from '@mui/material';
 import Input from '../../core/input/Input';
@@ -15,6 +14,8 @@ import React from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
 import InputContainer from '../../core/inputContainer/InputContainer';
+import { SelectChangeEvent } from '@mui/material/Select';
+
 
 const LoginForm = styled('form')`
   border-radius: 30px;
@@ -23,8 +24,22 @@ const LoginForm = styled('form')`
   width: 30rem;
   height: auto;
 `;
+
+type inputs = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  qualificaton: 
+   { 
+    SLC: boolean,
+    highSchool: boolean
+   }
+   age: number;
+}
+
 const Form = () => {
-  const [inputs, setInputs] = useState({
+  const [inputs, setInputs] = useState<inputs>({
     firstName: '',
     lastName: '',
     email: '',
@@ -42,12 +57,14 @@ const Form = () => {
     password: '',
   });
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement> | SelectChangeEvent) => {
     setInputs((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
+
+
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;
 
@@ -204,12 +221,14 @@ const Form = () => {
 
       <InputContainer>
         <FormControl fullWidth>
-          <InputLabel>Age</InputLabel>
+          <InputLabel id="login-age">Age</InputLabel>
           <Select
+            labelId='login-age'
+            id="login-form-select-age"
             name="age"
-            value={inputs.age}
-            label="Age"
+            value={inputs.age.toString()}
             onChange={handleChange}
+            label="Age"
           >
             <MenuItem value={10}>Ten</MenuItem>
             <MenuItem value={20}>Twenty</MenuItem>
@@ -217,6 +236,7 @@ const Form = () => {
           </Select>
         </FormControl>
       </InputContainer>
+     
       <Button variant="contained" type="submit">
         Log In
       </Button>
