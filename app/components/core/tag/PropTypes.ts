@@ -9,7 +9,7 @@ color: "default"|
 "success"|
 "warning";
 onClick?: () => void;
-selected: boolean;
+selected?: boolean;
 }
 
 export default TagPropTypes;
