@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Box } from '@mui/material';
 import styled from 'styled-components';
 
@@ -9,8 +9,11 @@ import styled from 'styled-components';
     border-radius: 10px;
     `;
 
+interface InputContainerProps {
+ children: React.ReactNode;
+}
 
-const InputContainer = ({children}: any) => {
+const InputContainer: FC<InputContainerProps> = ({children}) => {
   
   return (
     <InputBox>{children}</InputBox>
