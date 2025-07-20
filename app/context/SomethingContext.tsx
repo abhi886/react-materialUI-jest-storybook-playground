@@ -7,10 +7,16 @@ interface SomethingContextType {
 }
 
 // 2. Create the context
-const SomethingContext = createContext<SomethingContextType | undefined>(undefined);
+const SomethingContext = createContext<SomethingContextType | undefined>(
+  undefined
+);
 
 // 3. Create the context provider
-export const SomethingProvider = ({ children }: { children: React.ReactNode }) => {
+export const SomethingProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const [something, setSomething] = useState('Hello Paramatta');
 
   return (

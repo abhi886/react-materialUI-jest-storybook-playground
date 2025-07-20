@@ -1,53 +1,54 @@
 // eslint-disable-next-line storybook/no-renderer-packages
 import type { Meta, StoryObj } from '@storybook/react';
-import Input from "./Input";
+import Input from './Input';
 const meta: Meta<typeof Input> = {
   title: 'components/core/Input',
   component: Input,
-  tags:['autodocs'],
-   parameters: {
+  tags: ['autodocs'],
+  parameters: {
     layout: 'centered',
   },
   argTypes: {
-  id: {
-    control: 'text',
-    description: 'The ID of the input element',
+    id: {
+      control: 'text',
+      description: 'The ID of the input element',
+    },
+    label: {
+      control: 'text',
+      description: 'Label text for the input field',
+    },
+    variant: {
+      control: { type: 'radio' },
+      options: ['outlined', 'filled', 'standard'],
+      description: 'The variant to use for the input field',
+    },
+    fullWidth: {
+      control: 'boolean',
+      description:
+        'If true, the input takes up the full width of its container',
+    },
+    value: {
+      control: 'text',
+      description: 'The current value of the input',
+    },
+    onChange: {
+      action: 'onChange',
+      description: 'Event handler triggered when the input value changes',
+    },
+    placeholder: {
+      control: 'text',
+      description: 'Placeholder text displayed inside the input',
+    },
+    slotProps: {
+      control: false,
+      description: 'Custom props for the internal slots of the MUI TextField',
+    },
+    type: {
+      control: { type: 'select' },
+      options: ['text', 'email', 'password', 'date'],
+      description: 'The HTML input type',
+    },
   },
-  label: {
-    control: 'text',
-    description: 'Label text for the input field',
-  },
-  variant: {
-    control: { type: 'radio' },
-    options: ['outlined', 'filled', 'standard'],
-    description: 'The variant to use for the input field',
-  },
-  fullWidth: {
-    control: 'boolean',
-    description: 'If true, the input takes up the full width of its container',
-  },
-  value: {
-    control: 'text',
-    description: 'The current value of the input',
-  },
-  onChange: {
-    action: 'onChange',
-    description: 'Event handler triggered when the input value changes',
-  },
-  placeholder: {
-    control: 'text',
-    description: 'Placeholder text displayed inside the input',
-  },
-  slotProps: {
-    control: false,
-    description: 'Custom props for the internal slots of the MUI TextField',
-  },
-  type: {
-    control: { type: 'select' },
-    options: ['text', 'email', 'password', 'date'],
-    description: 'The HTML input type',
-  },
-}
 };
 export default meta;
 
@@ -57,18 +58,25 @@ export const Default: Story = {
   args: {
     id: 'default-input',
     label: 'Default Input',
-    variant:'standard',
+    variant: 'standard',
     placeholder: 'Enter something...',
     value: 'Default',
-    onChange: () => {}, 
+    onChange: () => {},
   },
-}; 
+};
 
 // Variations
 export const Variations: Story = {
-"name": "Input Variations",
-render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '300px' }}>
+  name: 'Input Variations',
+  render: () => (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '1rem',
+        width: '300px',
+      }}
+    >
       <Input
         id="input-standard"
         label="Standard"
@@ -76,7 +84,7 @@ render: () => (
         placeholder="Standard"
         onChange={() => {}}
         fullWidth={true}
-        value=''
+        value=""
         type={'text'}
       />
       <Input
@@ -86,7 +94,7 @@ render: () => (
         placeholder="Outlined"
         onChange={() => {}}
         fullWidth
-        value=''
+        value=""
         type={'text'}
       />
       <Input
@@ -96,17 +104,17 @@ render: () => (
         placeholder="Filled"
         onChange={() => {}}
         fullWidth
-        value=''
+        value=""
         type={'text'}
       />
     </div>
   ),
-}
+};
 
 // Variations
 export const FullWidth: Story = {
-"name": "Full Width",
- render: () => (
+  name: 'Full Width',
+  render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       <div style={{ width: '100%' }}>
         <Input
@@ -134,11 +142,11 @@ export const FullWidth: Story = {
       </div>
     </div>
   ),
-}
+};
 // Types
-export  const Type:Story = {
-  "name": 'Types of input',
- render: () => (
+export const Type: Story = {
+  name: 'Types of input',
+  render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
       <div style={{ width: '100%' }}>
         <Input
@@ -176,7 +184,7 @@ export  const Type:Story = {
           type={'email'}
         />
       </div>
-       <div style={{ width: '100%' }}>
+      <div style={{ width: '100%' }}>
         <Input
           id="input-date"
           label=""
@@ -189,5 +197,5 @@ export  const Type:Story = {
         />
       </div>
     </div>
-  ),    
-}
+  ),
+};

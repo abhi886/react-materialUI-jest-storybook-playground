@@ -3,19 +3,21 @@ import { AppBar, Button, Toolbar, Typography } from '@mui/material';
 import styled from 'styled-components';
 
 const LoginButton = styled(Button)`
-    margin-left: auto;
+  margin-left: auto;
 `;
 const TestAppBar = () => {
   return (
     <div>
-        <AppBar variant='elevation'>
-            <Toolbar>
-            <Typography>Logo</Typography>
-            <LoginButton variant="contained" color="error">Login</LoginButton>
-            </Toolbar>
-        </AppBar>
+      <AppBar variant="elevation">
+        <Toolbar>
+          <Typography>Logo</Typography>
+          <LoginButton variant="contained" color="error">
+            Login
+          </LoginButton>
+        </Toolbar>
+      </AppBar>
     </div>
-  )
-}
+  );
+};
 
-export default TestAppBar
+export default TestAppBar;

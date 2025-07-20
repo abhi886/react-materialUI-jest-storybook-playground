@@ -16,7 +16,6 @@ import styled from 'styled-components';
 import InputContainer from '../../core/inputContainer/InputContainer';
 import { SelectChangeEvent } from '@mui/material/Select';
 
-
 const LoginForm = styled('form')`
   border-radius: 30px;
   margin: 0px;
@@ -30,13 +29,12 @@ type inputs = {
   lastName: string;
   email: string;
   password: string;
-  qualificaton: 
-   { 
-    SLC: boolean,
-    highSchool: boolean
-   }
-   age: number;
-}
+  qualificaton: {
+    SLC: boolean;
+    highSchool: boolean;
+  };
+  age: number;
+};
 
 const Form = () => {
   const [inputs, setInputs] = useState<inputs>({
@@ -57,13 +55,14 @@ const Form = () => {
     password: '',
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement> | SelectChangeEvent) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement> | SelectChangeEvent
+  ) => {
     setInputs((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
-
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;
@@ -223,7 +222,7 @@ const Form = () => {
         <FormControl fullWidth>
           <InputLabel id="login-age">Age</InputLabel>
           <Select
-            labelId='login-age'
+            labelId="login-age"
             id="login-form-select-age"
             name="age"
             value={inputs.age.toString()}
@@ -236,7 +235,7 @@ const Form = () => {
           </Select>
         </FormControl>
       </InputContainer>
-     
+
       <Button variant="contained" type="submit">
         Log In
       </Button>

@@ -16,10 +16,10 @@ import { lightTheme, darkTheme } from '../app/theme';
 const preview: Preview = {
   parameters: {
     controls: {
-          expanded: true, // Adds the description and default columns
+      expanded: true, // Adds the description and default columns
       matchers: {
-       color: /(background|color)$/i,
-       date: /Date$/i,
+        color: /(background|color)$/i,
+        date: /Date$/i,
       },
     },
 
@@ -27,20 +27,22 @@ const preview: Preview = {
       // 'todo' - show a11y violations in the test UI only
       // 'error' - fail CI on a11y violations
       // 'off' - skip a11y checks entirely
-      test: 'todo'
-    }
+      test: 'todo',
+    },
   },
 
-  decorators: [withThemeFromJSXProvider({
-    GlobalStyles: CssBaseline,
-    Provider: ThemeProvider,
-    themes: {
-      // Provide your custom themes here
-      light: lightTheme,
-      dark: darkTheme,
-    },
-    defaultTheme: 'light',
-  })]
+  decorators: [
+    withThemeFromJSXProvider({
+      GlobalStyles: CssBaseline,
+      Provider: ThemeProvider,
+      themes: {
+        // Provide your custom themes here
+        light: lightTheme,
+        dark: darkTheme,
+      },
+      defaultTheme: 'light',
+    }),
+  ],
 };
 
 export default preview;
